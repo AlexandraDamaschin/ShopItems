@@ -12,7 +12,7 @@ namespace ShopItems.Models
         Stamina
     }
 
-    public class ShopItems
+    public class ShopItem
     {
         public int ID { get; set; }
 

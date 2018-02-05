@@ -12,6 +12,6 @@ namespace ShopItems.Models
         public DateTime PurchaseDate { get; set; }
 
         public virtual User User { get; set; }
-        public virtual ShopItems Item { get; set; }
+        public virtual ShopItem Item { get; set; }
     }
 }
