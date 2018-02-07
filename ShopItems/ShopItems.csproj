@@ -161,6 +161,7 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\IShopItemRepository.cs" />
     <Compile Include="DAL\IUserRepository.cs" />
+    <Compile Include="DAL\ShopItemRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
