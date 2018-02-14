@@ -6,18 +6,26 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ShopItems.DAL;
 using ShopItems.Models;
 
 namespace ShopItems.Controllers
 {
     public class ShopItemsController : Controller
     {
-        private ShopItemsContext db = new ShopItemsContext();
+        //private ShopItemsContext db = new ShopItemsContext();
+
+        private IShopItemRepository shopRepo;
+
+        public ShopItemsController()
+        {
+            shopRepo = new ShopItemRepository(new ShopItemsContext());
+        }
 
         // GET: ShopItems
         public ActionResult Index()
         {
-            return View(db.ShopItems.ToList());
+            return View();
         }
 
         // GET: ShopItems/Details/5

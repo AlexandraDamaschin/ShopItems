@@ -20,24 +20,28 @@ namespace ShopItems.DAL
         //•	DeleteItem should delete the user with the matching ID
         public void DeleteItem (int ItemID)
         {
-            
+            ShopItem shopItem = context.ShopItems.Find(ItemID);
+            context.ShopItems.Remove(shopItem);
+            context.SaveChanges();
         }
 
         //•	GetItemByID should get the specified user with the matching ID
         public ShopItem GetItemByID(int itemID)
         {
-           
+            return context.ShopItems.Find(itemID);
         }
 
         //•	GetItems should return all Users
         public IEnumerable<ShopItem> GetItems()
         {
-
+            return context.ShopItems.ToList();
         }
 
         //•	InsertItem should insert a new user
         public void InsertItem (ShopItem item)
         {
+            context.ShopItems.Add(item);
+            context.SaveChanges();
 
         }
 
@@ -50,6 +54,7 @@ namespace ShopItems.DAL
         //•	UpdateItem should set the state of the selected user to Modified
         public void UpdateItem (ShopItem item)
         {
+            ShopItem shopItem = context.ShopItems.Find(item);
 
         }
 
