@@ -21,6 +21,7 @@ namespace ShopItems.Controllers
         {
             shopRepo = new ShopItemRepository(new ShopItemsContext());
         }
+
         // GET: ShopItems
         public ActionResult Index()
         {

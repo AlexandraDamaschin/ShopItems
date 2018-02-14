@@ -54,6 +54,7 @@ namespace ShopItems.DAL
         //•	UpdateItem should set the state of the selected user to Modified
         public void UpdateItem (ShopItem item)
         {
+            ShopItem shopItem = context.ShopItems.Find(item);
 
         }
 
