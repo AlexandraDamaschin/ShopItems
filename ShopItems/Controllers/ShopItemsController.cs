@@ -13,7 +13,7 @@ namespace ShopItems.Controllers
 {
     public class ShopItemsController : Controller
     {
-        //private ShopItemsContext db = new ShopItemsContext();
+        private ShopItemsContext db = new ShopItemsContext();
 
         private IShopItemRepository shopRepo;
 
