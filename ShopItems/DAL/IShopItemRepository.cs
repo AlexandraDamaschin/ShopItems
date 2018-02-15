@@ -10,11 +10,11 @@ namespace ShopItems.DAL
     public interface IShopItemRepository: IDisposable
     {
         IEnumerable<ShopItem> GetItems();
-        ShopItem GetItemById(int userID);
+        ShopItem GetItemByID(int userID);
 
         void InsertItem(ShopItem Item);
         void UpdateItem(ShopItem Item);
-        void DeleteItem(ShopItem Item);
+        void DeleteItem(int  ItemID);
 
         void Save();
     }

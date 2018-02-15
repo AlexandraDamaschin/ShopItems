@@ -13,7 +13,7 @@ namespace ShopItems.Controllers
 {
     public class ShopItemsController : Controller
     {
-        private ShopItemsContext db = new ShopItemsContext();
+        //private ShopItemsContext db = new ShopItemsContext();
 
         private IShopItemRepository shopRepo;
 
@@ -29,18 +29,10 @@ namespace ShopItems.Controllers
         }
 
         // GET: ShopItems/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ShopItem shopItem = db.ShopItems.Find(id);
-            if (shopItem == null)
-            {
-                return HttpNotFound();
-            }
-            return View(shopItem);
+            return View(shopRepo.GetItemByID(id));
+
         }
 
         // GET: ShopItems/Create
@@ -56,29 +48,15 @@ namespace ShopItems.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Cost,Class,ImageUrl")] ShopItem shopItem)
         {
-            if (ModelState.IsValid)
-            {
-                db.ShopItems.Add(shopItem);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            return View();
 
-            return View(shopItem);
         }
 
         // GET: ShopItems/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ShopItem shopItem = db.ShopItems.Find(id);
-            if (shopItem == null)
-            {
-                return HttpNotFound();
-            }
-            return View(shopItem);
+            return View();
+
         }
 
         // POST: ShopItems/Edit/5
@@ -88,28 +66,14 @@ namespace ShopItems.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,Cost,Class,ImageUrl")] ShopItem shopItem)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(shopItem).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
             return View(shopItem);
         }
 
         // GET: ShopItems/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ShopItem shopItem = db.ShopItems.Find(id);
-            if (shopItem == null)
-            {
-                return HttpNotFound();
-            }
-            return View(shopItem);
+
+            return View();
         }
 
         // POST: ShopItems/Delete/5
@@ -117,19 +81,12 @@ namespace ShopItems.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ShopItem shopItem = db.ShopItems.Find(id);
-            db.ShopItems.Remove(shopItem);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return View();
+
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
