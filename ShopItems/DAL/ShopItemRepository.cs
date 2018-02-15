@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ShopItems.DAL
 {
-    public class ShopItemRepository :IShopItemRepository, IDisposable
+    public class ShopItemRepository : IShopItemRepository, IDisposable
     {
         ShopItemsContext context;
 

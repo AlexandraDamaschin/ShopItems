@@ -38,8 +38,9 @@
             @Html.DisplayFor(modelItem => item.Class)
         </td>
         <td>
-            <img src=" @Url.Content(item.ImageUrl)" 
-                 alt="Image" width="64" height="64"/>
+           <img src="@Url.Content(item.ImageUrl)"
+                alt="Image"
+                width="64" height="64"/>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
